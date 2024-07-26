@@ -1,0 +1,19 @@
+{
+  "name": "marks_summer_school_24",
+  "version": "1.0.0",
+  "description": "TDL Summer School 2024",
+  "main": "comments.js",
+  "scripts": {
+    "format": "npx prettier . --write"
+  },
+  "keywords": [
+    "cypress",
+    "javascript"
+  ],
+  "author": "Marks Cimermanis",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^13.13.1",
+    "prettier": "^3.3.3"
+  }
+}
