@@ -20,6 +20,8 @@ describe("Fullflow test for web store", () => {
     cy.contains('div', 'Hey there')
     cy.get('.animate-spin').should('not.exist');
     Pages.dashboardPage.addressLink.click();
+    Pages.addressPage.addressTitle.should('exist')
     Pages.addressPage.addNewAddress.click()
+    Pages.addressPage.requiredImputs('').should('have.length', 6)
   })
 });
