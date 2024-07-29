@@ -15,7 +15,7 @@ class AddressPage extends BasePage{
     }
 
     requiredImputs(element) {
-        return cy.get(`[data-testid${element}] [required]`)
+        return cy.get(`[data-testid=${element}] [required]`)
     }
 
     get saveButton() {

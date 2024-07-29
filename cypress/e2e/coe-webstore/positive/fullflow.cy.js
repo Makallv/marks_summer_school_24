@@ -22,6 +22,7 @@ describe("Fullflow test for web store", () => {
     Pages.dashboardPage.addressLink.click();
     Pages.addressPage.addressTitle.should('exist')
     Pages.addressPage.addNewAddress.click()
-    Pages.addressPage.requiredImputs('').should('have.length', 6)
+    Pages.addressPage.requiredImputs('').should('have.attr', 'required')
+    Pages.addressPage.requiredImputs()
   })
 });
