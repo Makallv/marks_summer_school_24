@@ -6,18 +6,18 @@ describe("Fullflow test for web store", () => {
   });
 
   it("User can add to cart", () => {
-    cy.visit("/store");
+    cy.visit(Pages.homePage.url);
     Pages.homePage.visibleProducts("t-shirt").should("be.visible").click();
     Pages.productPage.addToCartButton().should("be.disabled");
-    cy.selectVariant("L", "Black");
+    cy.selectVariant("XL", "Black");
     Pages.productPage.addToCartButton().should("be.enabled").click();
   });
 
   it("User can add an address", () => {
     cy.visit(Pages.dashboardPage.url);
     cy.contains("div", "Hey there");
-    cy.get(".animate-spin").should("not.exist");
-    Pages.dashboardPage.addressLink.click();
+    Pages.dashboardPage.animeSpin.should("not.exist");
+    Pages.dashboardPage.pageLinks('Addresses').click();
     Pages.addressPage.addressTitle.should("exist");
     Pages.addressPage.addNewAddress.click();
     cy.fixture("addressInputs").then((inputs) => {
@@ -40,19 +40,27 @@ describe("Fullflow test for web store", () => {
     Pages.checkoutProccessPage.continueToCheckout.should('have.text', 'Go to checkout').click()
     Pages.checkoutProccessPage.addressButton.should('have.text', 'Choose an address').click()
     Pages.checkoutProccessPage.savedAddress.click()
+    Pages.checkoutProccessPage.firstNameInput.should('have.value', 'FirstName')
     Pages.checkoutProccessPage.continueToDelivery.click()
-    Pages.checkoutProccessPage.fakeExExpressRadio('FakeEx Express').click()
+    Pages.checkoutProccessPage.deliveryOptionRadio('FakeEx Express').click() 
     Pages.checkoutProccessPage.continueToPayment.click()
     Pages.checkoutProccessPage.continueToReview.click()
     Pages.checkoutProccessPage.placeOrder.click()
     Pages.checkoutProccessPage.successfullOrderText.should('have.text', "Your order was placed successfully.")
   });
 
+  it('User can see order details', () => {
+    cy.visit(Pages.dashboardPage.url)
+    Pages.dashboardPage.animeSpin.should("not.exist");
+    Pages.dashboardPage.orderList.should('have.length.greaterThan', 0)
+    cy.url().should('include', Pages.dashboardPage.url)
+  })
+
   it("User can log out", () => {
     cy.visit(Pages.dashboardPage.url);
     cy.contains("div", "Hey there");
-    cy.get(".animate-spin").should("not.exist");
-    Pages.dashboardPage.logout.click();
+    Pages.dashboardPage.animeSpin.should("not.exist");
+    Pages.dashboardPage.pageLinks('Log out').click();
     cy.url().should("include", "/sign-in");
   });
 });

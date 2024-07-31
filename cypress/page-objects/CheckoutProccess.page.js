@@ -10,8 +10,12 @@ class CheckoutProccessPage extends BasePage{
         return '/cart'
     }
 
+    get firstNameInput() {
+        return cy.get('[data-testid="shipping-first-name-input"]')
+    }
+
     get successfullOrderText() {
-        return cy.get('.h1-core > :nth-child(2)')
+        return cy.get('.h1-core > :nth-child(2)') // maybe its possible to replace selector without pseudo CSS selector nth-child
     }
 
     get placeOrder() {
@@ -30,7 +34,7 @@ class CheckoutProccessPage extends BasePage{
         return cy.get('[data-testid="submit-address-button"]')
     }
 
-    fakeExExpressRadio(option) {
+    deliveryOptionRadio(option) {
         return cy.get('[data-testid="delivery-option-radio"]').contains(option)
     }
 

@@ -5,7 +5,7 @@ class HomePage extends BasePage {
     super();
   }
 
-  static get url() {
+  get url() {
     return "/store";
   }
 
@@ -14,11 +14,11 @@ class HomePage extends BasePage {
   }
 
   visibleProducts(product) {
-    return cy.get(`a[href="/us/products/${product}"]`);
+    return cy.get(`[href="/us/products/${product}"]`); 
   }
 
   dashboardPageLink() {
-    return cy.get('a[data-testid="nav-dashboard-link"]');
+    return cy.get('[data-testid="nav-dashboard-link"]'); 
   }
 }
 
