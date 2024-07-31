@@ -3,13 +3,12 @@ import BasePage from "./Base.page";
 class ProductPage extends BasePage {
   variant(variant) {
     return cy
-        .get(`div[data-testid="product-options"] > button`)
-        .contains(variant)
+      .get(`div[data-testid="product-options"] > button`)
+      .contains(variant);
   }
 
   addToCartButton() {
-    return cy
-        .get('button[data-testid="add-product-button"]')
+    return cy.get('button[data-testid="add-product-button"]');
   }
 }
 

@@ -27,8 +27,13 @@ import Pages from "./pages";
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add("login", (email, password) => {
-  Pages.loginPage.emailInput.type(email);
-  Pages.loginPage.passwordInput.type(password);
+  cy.session([email, password], () => {
+    Pages.basePage.visit();
+    Pages.loginPage.emailInput.type(email);
+    Pages.loginPage.passwordInput.type(password);
+    Pages.loginPage.signInButton.click();
+    Pages.homePage.visibleProducts("t-shirt").should("be.visible");
+  });
 });
 
 Cypress.Commands.add("selectVariant", (size, colour) => {
@@ -36,6 +41,20 @@ Cypress.Commands.add("selectVariant", (size, colour) => {
   Pages.productPage.variant(colour).click();
 });
 
-Cypress.Commands.add('getByHref', (address) => {
-  cy.get(`a[href="/us/${address}"]`)
-})
+Cypress.Commands.add("getByHref", (address) => {
+  cy.get(`[href="/us/${address}"]`);
+});
+
+Cypress.Commands.add("getByTestId", (id) => {
+  cy.get(`[data-testid=${id}]`);
+});
+
+Cypress.Commands.add("fillInputs", (input, value) => {
+  if (input === "country-select") {
+    Pages.addressPage.select(input).should("have.attr", "required");
+    Pages.addressPage.select(input).select(value);
+  } else {
+    Pages.addressPage.requiredImputs(input).should("be.visible");
+    Pages.addressPage.requiredImputs(input).type(value);
+  }
+});

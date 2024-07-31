@@ -4,7 +4,8 @@ import RegisterPage from "../page-objects/auth/Register.page";
 import HomePage from "../page-objects/Home.page";
 import ProductPage from "../page-objects/Product.page";
 import DashboardPage from "../page-objects/Dashboard.page";
-import AddressPage from "../page-objects/Address.page"
+import AddressPage from "../page-objects/Address.page";
+import CheckoutProccessPage from "../page-objects/CheckoutProccess.page";
 
 export class Pages {
   constructor() {
@@ -14,7 +15,8 @@ export class Pages {
     this.homePage = new HomePage();
     this.productPage = new ProductPage();
     this.dashboardPage = new DashboardPage();
-    this.addressPage = new AddressPage()
+    this.addressPage = new AddressPage();
+    this.checkoutProccessPage = new CheckoutProccessPage();
   }
 }
 

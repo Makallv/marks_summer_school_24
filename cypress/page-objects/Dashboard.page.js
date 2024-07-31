@@ -1,26 +1,33 @@
-import BasePage from "./Base.page"
+import BasePage from "./Base.page";
 
 class DashboardPage extends BasePage {
+  constructor() {
+    super();
+  }
 
-    constructor(){
-        super()
-    }
+  get url() {
+    return "/dashboard";
+  }
 
-    get addressLink() {
-        return cy.getByHref("dashboard/addresses").filter(":visible")
-    }
+  visit() {
+    return cy.visit(this.url);
+  }
 
-    get profileLink() {
-        return cy.get('a[data-testid="profile-link"]')
-    }
+  get addressLink() {
+    return cy.getByHref("dashboard/addresses").filter(":visible");
+  }
 
-    get ordersLink() {
-        return cy.get('a[data-testid="orders-link"]')
-    }
+  get profileLink() {
+    return cy.get('a[data-testid="profile-link"]');
+  }
 
-    get logout() {
-        return cy.get('button[data-testid="logout-button"]')
-    }
+  get ordersLink() {
+    return cy.get('a[data-testid="orders-link"]');
+  }
+
+  get logout() {
+    return cy.get('.text-grey-700 > [data-testid="logout-button"]');
+  }
 }
 
-export default DashboardPage
+export default DashboardPage;

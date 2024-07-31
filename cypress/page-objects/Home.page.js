@@ -5,12 +5,20 @@ class HomePage extends BasePage {
     super();
   }
 
+  static get url() {
+    return "/store";
+  }
+
+  visit() {
+    return cy.visit(this.url);
+  }
+
   visibleProducts(product) {
     return cy.get(`a[href="/us/products/${product}"]`);
   }
 
   dashboardPageLink() {
-    return cy.get('a[data-testid="nav-dashboard-link"]')
+    return cy.get('a[data-testid="nav-dashboard-link"]');
   }
 }
 

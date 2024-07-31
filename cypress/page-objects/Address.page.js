@@ -1,26 +1,33 @@
 import BasePage from "./Base.page";
 
-class AddressPage extends BasePage{
+class AddressPage extends BasePage {
+  constructor() {
+    super();
+  }
 
-    constructor() {
-        super()
-    }
+  get addressTitle() {
+    return cy.get("h1");
+  }
 
-    get addressTitle() {
-        return cy.get('h1')
-    }
+  get addNewAddress() {
+    return cy.get('button[data-testid="add-address-button"]');
+  }
 
-    get addNewAddress() {
-        return cy.get('button[data-testid="add-address-button"]')
-    }
+  requiredImputs(element) {
+    return cy.get(`[data-testid="${element}"]~label`);
+  }
 
-    requiredImputs(element) {
-        return cy.get(`[data-testid=${element}] [required]`)
-    }
+  select(element) {
+    return cy.get(`[data-testid="${element}"]`);
+  }
 
-    get saveButton() {
-        return cy.get('button[data-testid="save-button"]')
-    }
+  get saveButton() {
+    return cy.get('button[data-testid="save-button"]');
+  }
+
+  get addressContainer() {
+    return cy.get('[data-testid="address-container"]');
+  }
 }
 
-export default AddressPage
+export default AddressPage;
