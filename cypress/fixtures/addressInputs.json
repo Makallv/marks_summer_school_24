@@ -1,0 +1,8 @@
+{
+  "first_name": "first-name-input",
+  "last_name": "last-name-input",
+  "address": "address-1-input",
+  "city": "city-input",
+  "postal_code": "postal-code-input",
+  "country": "country-select"
+}
