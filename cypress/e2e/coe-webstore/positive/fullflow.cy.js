@@ -1,8 +1,10 @@
-import Pages from "../support/pages";
+import Pages from "../../../support/pages";
 
 describe("Fullflow test for web store", () => {
   beforeEach(() => {
-    cy.login(Cypress.env("username"), Cypress.env("password"));
+    cy.fixture("user/user").then((userJson) => {
+      cy.login(userJson["username"], userJson["password"]);
+    });
   });
 
   it("User can add to cart", () => {
@@ -17,7 +19,7 @@ describe("Fullflow test for web store", () => {
     cy.visit(Pages.dashboardPage.url);
     cy.contains("div", "Hey there");
     Pages.dashboardPage.animeSpin.should("not.exist");
-    Pages.dashboardPage.pageLinks('Addresses').click();
+    Pages.dashboardPage.pageLinks("Addresses").click();
     Pages.addressPage.addressTitle.should("exist");
     Pages.addressPage.addNewAddress.click();
     cy.fixture("addressInputs").then((inputs) => {
@@ -35,32 +37,39 @@ describe("Fullflow test for web store", () => {
     Pages.addressPage.addressContainer.should("have.length", 1);
   });
 
-  it('User can checkout', () => {
+  it("User can checkout", () => {
     cy.visit(Pages.checkoutProccessPage.url);
-    Pages.checkoutProccessPage.continueToCheckout.should('have.text', 'Go to checkout').click()
-    Pages.checkoutProccessPage.addressButton.should('have.text', 'Choose an address').click()
-    Pages.checkoutProccessPage.savedAddress.click()
-    Pages.checkoutProccessPage.firstNameInput.should('have.value', 'FirstName')
-    Pages.checkoutProccessPage.continueToDelivery.click()
-    Pages.checkoutProccessPage.deliveryOptionRadio('FakeEx Express').click() 
-    Pages.checkoutProccessPage.continueToPayment.click()
-    Pages.checkoutProccessPage.continueToReview.click()
-    Pages.checkoutProccessPage.placeOrder.click()
-    Pages.checkoutProccessPage.successfullOrderText.should('have.text', "Your order was placed successfully.")
+    Pages.checkoutProccessPage.continueToCheckout
+      .should("have.text", "Go to checkout")
+      .click();
+    Pages.checkoutProccessPage.addressButton
+      .should("have.text", "Choose an address")
+      .click();
+    Pages.checkoutProccessPage.savedAddress.click();
+    Pages.checkoutProccessPage.firstNameInput.should("have.value", "FirstName");
+    Pages.checkoutProccessPage.continueToDelivery.click();
+    Pages.checkoutProccessPage.deliveryOptionRadio("FakeEx Express").click();
+    Pages.checkoutProccessPage.continueToPayment.click();
+    Pages.checkoutProccessPage.continueToReview.click();
+    Pages.checkoutProccessPage.placeOrder.click();
+    Pages.checkoutProccessPage.successfullOrderText.should(
+      "have.text",
+      "Your order was placed successfully.",
+    );
   });
 
-  it('User can see order details', () => {
-    cy.visit(Pages.dashboardPage.url)
+  it("User can see order details", () => {
+    cy.visit(Pages.dashboardPage.url);
     Pages.dashboardPage.animeSpin.should("not.exist");
-    Pages.dashboardPage.orderList.should('have.length.greaterThan', 0)
-    cy.url().should('include', Pages.dashboardPage.url)
-  })
+    Pages.dashboardPage.orderList.should("have.length.greaterThan", 0);
+    cy.url().should("include", Pages.dashboardPage.url);
+  });
 
   it("User can log out", () => {
     cy.visit(Pages.dashboardPage.url);
     cy.contains("div", "Hey there");
     Pages.dashboardPage.animeSpin.should("not.exist");
-    Pages.dashboardPage.pageLinks('Log out').click();
+    Pages.dashboardPage.pageLinks("Log out").click();
     cy.url().should("include", "/sign-in");
   });
 });

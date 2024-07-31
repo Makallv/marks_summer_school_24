@@ -18,7 +18,7 @@ class LoginPage extends BasePage {
   }
 
   get signInButton() {
-    return cy.get("button[type='submit']");
+    return cy.get("[type='submit']");
   }
 
   get registerLink() {

@@ -2,6 +2,17 @@
 
 TDL Summer School 2024
 
+# About project
+
+This project is written in JavaScript programming language and project uses:
+* NodeJS
+* NPM
+* Prettier
+* faker-js
+* Cypress
+
+The project is about learning cypress in a real project setting
+
 ## Installation
 
 `git clone https://github.com/Makallv/marks_summer_school_24.git`
@@ -15,6 +26,5 @@ Command to execute `Prettier` script to format files
 
 ### Cypress usage
 
-To use cypress created scripts and execute tests, run the command `npx cypress open`.
-
-You can also execute headless tests, use command `npx cypress run`
+To run the test runner use command `npm run cypress-open`
+To execute tests in headless mode use `npm run cypress-run`

@@ -14,15 +14,15 @@ class DashboardPage extends BasePage {
   }
 
   get animeSpin() {
-    return cy.get(".animate-spin")
+    return cy.get(".animate-spin");
   }
 
   pageLinks(pageOption) {
-    return cy.get('[data-testid="account-nav"]').contains(pageOption)
+    return cy.get('[data-testid="account-nav"]').contains(pageOption);
   }
 
   get orderList() {
-    return cy.get('[data-testid="orders-wrapper"]')
+    return cy.get('[data-testid="orders-wrapper"]');
   }
 }
 

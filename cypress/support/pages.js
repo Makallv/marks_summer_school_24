@@ -7,7 +7,7 @@ import DashboardPage from "../page-objects/Dashboard.page";
 import AddressPage from "../page-objects/Address.page";
 import CheckoutProccessPage from "../page-objects/CheckoutProccess.page";
 
-export class Pages {
+class Pages {
   constructor() {
     this.basePage = new BasePage();
     this.loginPage = new LoginPage();
