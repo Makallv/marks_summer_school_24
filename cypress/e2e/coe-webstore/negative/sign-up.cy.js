@@ -76,12 +76,12 @@ describe("Register a new account", () => {
 
   // https://tdlschool.atlassian.net/browse/TSS22N-78
   it("User can't register by using the same email", () => {
-    Pages.loginPage.registerLink.click()
+    Pages.loginPage.registerLink.click();
     Pages.registerPage.registerFunc(
-        RANDOM_FIRST_NAME,
-        RANDOM_LAST_NAME,
-        Cypress.env("USERNAME"),
-        RANDOM_PASSWORD,
+      RANDOM_FIRST_NAME,
+      RANDOM_LAST_NAME,
+      Cypress.env("USERNAME"),
+      RANDOM_PASSWORD,
     );
     Pages.registerPage.checkInputs(
       RANDOM_FIRST_NAME,
