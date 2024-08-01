@@ -59,7 +59,7 @@ describe("Fullflow test for web store", () => {
   it("User can see order details", () => {
     cy.visit(Pages.dashboardPage.url);
     Pages.dashboardPage.animeSpin.should("not.exist");
-    Pages.dashboardPage.orderList.should("have.length.greaterThan", 0);
+    Pages.dashboardPage.orderList.should("have.length.least", 1);
     cy.url().should("include", Pages.dashboardPage.url);
   });
 
