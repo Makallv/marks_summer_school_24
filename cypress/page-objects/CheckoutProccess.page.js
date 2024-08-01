@@ -9,8 +9,8 @@ class CheckoutProccessPage extends BasePage {
     return "/cart";
   }
 
-  get firstNameInput() {
-    return cy.get('[data-testid="shipping-first-name-input"]');
+  firstNameInput(input) {
+    return cy.getByTestId(input)
   }
 
   get successfullOrderText() {
@@ -37,12 +37,13 @@ class CheckoutProccessPage extends BasePage {
     return cy.get('[data-testid="delivery-option-radio"]').contains(option);
   }
 
-  get savedAddress() {
-    return cy.get('[data-testid="shipping-address-radio"]');
+  savedAddress(radio) {
+    return cy.getByTestId(radio);
   }
 
-  get continueToCheckout() {
-    return cy.get('[data-testid="checkout-button"]');
+  "shipping-address-radio"
+  continueToCheckout(button) {
+    return cy.getByTestId(button);
   }
 
   get addressButton() {

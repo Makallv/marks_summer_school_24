@@ -58,3 +58,7 @@ Cypress.Commands.add("fillInputs", (input, value) => {
     Pages.addressPage.requiredImputs(input).type(value);
   }
 });
+
+Cypress.Commands.add("getByTestId", (id) => {
+  cy.get(`[data-testid=${id}]`);
+});
