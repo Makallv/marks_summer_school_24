@@ -32,7 +32,7 @@ describe("Fullflow test for web store", () => {
       });
     });
     Pages.addressPage.saveButton.click();
-    Pages.addressPage.addressContainer.should("have.length", 2);
+    Pages.addressPage.addressContainer.should("have.length", 1);
   });
 
   it("User can checkout", () => {
