@@ -72,21 +72,18 @@ describe("Register a new account", () => {
   });
 
   it("User can't register by using the same email", () => {
-    Pages.loginPage.registerLink.click();
-    cy.fixture("user/user").then((userJson) => {
-      Pages.registerPage.registerFunc(
+    Pages.registerPage.registerFunc(
         RANDOM_FIRST_NAME,
         RANDOM_LAST_NAME,
-        userJson["username"],
+        Cypress.env("USERNAME"),
         RANDOM_PASSWORD,
-      );
-      Pages.registerPage.checkInputs(
-        RANDOM_FIRST_NAME,
-        RANDOM_LAST_NAME,
-        userJson["username"],
-        RANDOM_PASSWORD,
-      );
-    });
+    );
+    Pages.registerPage.checkInputs(
+      RANDOM_FIRST_NAME,
+      RANDOM_LAST_NAME,
+      Cypress.env("USERNAME"),
+      RANDOM_PASSWORD,
+    );
     Pages.registerPage.registerButton.click();
     Pages.registerPage.registerError.should(
       "have.text",
