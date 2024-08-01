@@ -18,35 +18,35 @@ class CheckoutProccessPage extends BasePage {
   }
 
   get placeOrder() {
-    return cy.get('[data-testid="submit-order-button"]');
+    return cy.get('[data-testid="submit-order-button"]'); // TODO: use cy.getByTestId
   }
 
   get continueToReview() {
-    return cy.get('[data-testid="submit-payment-button"]');
+    return cy.get('[data-testid="submit-payment-button"]'); // TODO: use cy.getByTestId
   }
 
   get continueToPayment() {
-    return cy.get('[data-testid="submit-delivery-option-button"]');
+    return cy.get('[data-testid="submit-delivery-option-button"]'); // TODO: use cy.getByTestId
   }
 
   get continueToDelivery() {
-    return cy.get('[data-testid="submit-address-button"]');
+    return cy.get('[data-testid="submit-address-button"]'); // TODO: use cy.getByTestId
   }
 
   deliveryOptionRadio(option) {
-    return cy.get('[data-testid="delivery-option-radio"]').contains(option);
+    return cy.get('[data-testid="delivery-option-radio"]').contains(option); // TODO: use cy.getByTestId
   }
 
   get savedAddress() {
-    return cy.get('[data-testid="shipping-address-radio"]');
+    return cy.get('[data-testid="shipping-address-radio"]'); // TODO: use cy.getByTestId
   }
 
   get continueToCheckout() {
-    return cy.get('[data-testid="checkout-button"]');
+    return cy.get('[data-testid="checkout-button"]'); // TODO: use cy.getByTestId
   }
 
   get addressButton() {
-    return cy.get('[data-testid="shipping-address-select"] > span');
+    return cy.get('[data-testid="shipping-address-select"] > span'); // TODO: use cy.getByTestId
   }
 }
 

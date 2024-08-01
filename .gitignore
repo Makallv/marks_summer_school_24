@@ -1,4 +1,3 @@
 node_modules
-user
 mochawesome-report
-screenshots
+cypress/screenshots

@@ -10,15 +10,15 @@ class RegisterPage extends BasePage {
   }
 
   get firstNameInput() {
-    return cy.get('[data-testid="first-name-input"]');
+    return cy.get('[data-testid="first-name-input"]'); // TODO: use cy.getByTestId
   }
 
   get lastNameInput() {
-    return cy.get('[data-testid="last-name-input"]');
+    return cy.get('[data-testid="last-name-input"]'); // TODO: use cy.getByTestId
   }
 
   get emailInput() {
-    return cy.get('[data-testid="email-input"]');
+    return cy.get('[data-testid="email-input"]'); // TODO: use cy.getByTestId
   }
 
   get phoneInput() {
@@ -26,15 +26,15 @@ class RegisterPage extends BasePage {
   }
 
   get passwordInput() {
-    return cy.get('[data-testid="password-input"]');
+    return cy.get('[data-testid="password-input"]'); // TODO: use cy.getByTestId
   }
 
   get registerButton() {
-    return cy.get('[data-testid="register-button"]');
+    return cy.get('[data-testid="register-button"]'); // TODO: use cy.getByTestId
   }
 
   get registerError() {
-    return cy.get('[data-testid="register-error"]');
+    return cy.get('[data-testid="register-error"]'); // TODO: use cy.getByTestId
   }
 
   registerFunc(name, last, email, pass) {

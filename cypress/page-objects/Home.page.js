@@ -14,15 +14,15 @@ class HomePage extends BasePage {
   }
 
   visibleProducts(product) {
-    return cy.get(`[href="/us/products/${product}"]`);
+    return cy.get(`[href="/us/products/${product}"]`); //// TODO: use cy.getByHref
   }
 
   get productArray() {
-    return cy.get('[data-testid="product-wrapper"]');
+    return cy.get('[data-testid="product-wrapper"]'); // TODO: use cy.getByTestId
   }
 
   dashboardPageLink() {
-    return cy.get('[data-testid="nav-dashboard-link"]');
+    return cy.get('[data-testid="nav-dashboard-link"]'); // TODO: use cy.getByTestId
   }
 }
 

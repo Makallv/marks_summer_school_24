@@ -18,11 +18,11 @@ class DashboardPage extends BasePage {
   }
 
   pageLinks(pageOption) {
-    return cy.get('[data-testid="account-nav"]').contains(pageOption);
+    return cy.get('[data-testid="account-nav"]').contains(pageOption); // TODO: use cy.getByTestId
   }
 
   get orderList() {
-    return cy.get('[data-testid="orders-wrapper"]');
+    return cy.get('[data-testid="orders-wrapper"]'); // TODO: use cy.getByTestId
   }
 }
 

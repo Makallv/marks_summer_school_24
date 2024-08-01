@@ -22,12 +22,12 @@ describe("Fullflow test for web store", () => {
     Pages.dashboardPage.pageLinks("Addresses").click();
     Pages.addressPage.addressTitle.should("exist");
     Pages.addressPage.addNewAddress.click();
-    cy.fixture("addressInputs").then((inputs) => {
+    cy.fixture("addressInputs").then((inputs) => { // TODO: might be good idea to wrap this in addressPage function to make scenario more readable
       cy.fixture("addressValues").then((values) => {
         for (const [i_key, i_value] of Object.entries(inputs)) {
           for (const [v_key, v_value] of Object.entries(values)) {
             if (i_key === v_key) {
-              cy.fillInputs(i_value, v_value);
+              cy.fillInputs(i_value, v_value);      // TODO: fillInputs only used for addressPage, so probably best move to that class. Custom cy commands reserved for repetitive, global actions
             }
           }
         }

@@ -10,19 +10,19 @@ class LoginPage extends BasePage {
   }
 
   get emailInput() {
-    return cy.get("#email");
+    return cy.get("#email"); // TODO: use [data-testid="email-input"]
   }
 
   get passwordInput() {
-    return cy.get("#password");
+    return cy.get("#password"); // TODO: use data-testid selector according to best practices
   }
 
   get signInButton() {
-    return cy.get("[type='submit']");
+    return cy.get("[type='submit']"); // TODO: use data-testid selector according to best practices
   }
 
   get registerLink() {
-    return cy.get(".underline");
+    return cy.get(".underline"); // TODO: use data-testid selector according to best practices
   }
 }
 
