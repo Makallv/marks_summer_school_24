@@ -10,7 +10,7 @@ class AddressPage extends BasePage {
   }
 
   get addNewAddress() {
-    return cy.get('button[data-testid="add-address-button"]');
+    return cy.get('button[data-testid="add-address-button"]'); // is button really necessary?
   }
 
   requiredImputs(element) {
@@ -22,7 +22,7 @@ class AddressPage extends BasePage {
   }
 
   get saveButton() {
-    return cy.get('button[data-testid="save-button"]');
+    return cy.get('button[data-testid="save-button"]'); // is button really necessary?
   }
 
   get addressContainer() {

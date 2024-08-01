@@ -13,20 +13,16 @@ class DashboardPage extends BasePage {
     return cy.visit(this.url);
   }
 
-  get addressLink() {
-    return cy.getByHref("dashboard/addresses").filter(":visible");
+  get animeSpin() {
+    return cy.get(".animate-spin");
   }
 
-  get profileLink() {
-    return cy.get('a[data-testid="profile-link"]');
+  pageLinks(pageOption) {
+    return cy.get('[data-testid="account-nav"]').contains(pageOption);
   }
 
-  get ordersLink() {
-    return cy.get('a[data-testid="orders-link"]');
-  }
-
-  get logout() {
-    return cy.get('.text-grey-700 > [data-testid="logout-button"]');
+  get orderList() {
+    return cy.get('[data-testid="orders-wrapper"]');
   }
 }
 

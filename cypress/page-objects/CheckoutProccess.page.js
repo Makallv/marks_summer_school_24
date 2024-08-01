@@ -1,51 +1,53 @@
-import BasePage from "./Base.page"
+import BasePage from "./Base.page";
 
-class CheckoutProccessPage extends BasePage{
+class CheckoutProccessPage extends BasePage {
+  constructor() {
+    super();
+  }
 
-    constructor() {
-        super()
-    }
+  get url() {
+    return "/cart";
+  }
 
-    get url() {
-        return '/cart'
-    }
+  get firstNameInput() {
+    return cy.get('[data-testid="shipping-first-name-input"]');
+  }
 
-    get successfullOrderText() {
-        return cy.get('.h1-core > :nth-child(2)')
-    }
+  get successfullOrderText() {
+    return cy.get(".h1-core > :nth-child(2)"); // maybe its possible to replace selector without pseudo CSS selector nth-child
+  }
 
-    get placeOrder() {
-        return cy.get('[data-testid="submit-order-button"]')
-    }
+  get placeOrder() {
+    return cy.get('[data-testid="submit-order-button"]');
+  }
 
-    get continueToReview() {
-        return cy.get('[data-testid="submit-payment-button"]')
-    }
+  get continueToReview() {
+    return cy.get('[data-testid="submit-payment-button"]');
+  }
 
-    get continueToPayment() {
-        return cy.get('[data-testid="submit-delivery-option-button"]')
-    }
+  get continueToPayment() {
+    return cy.get('[data-testid="submit-delivery-option-button"]');
+  }
 
-    get continueToDelivery() {
-        return cy.get('[data-testid="submit-address-button"]')
-    }
+  get continueToDelivery() {
+    return cy.get('[data-testid="submit-address-button"]');
+  }
 
-    fakeExExpressRadio(option) {
-        return cy.get('[data-testid="delivery-option-radio"]').contains(option)
-    }
+  deliveryOptionRadio(option) {
+    return cy.get('[data-testid="delivery-option-radio"]').contains(option);
+  }
 
-    get savedAddress() {
-        return cy.get('[data-testid="shipping-address-radio"]')
-    }
+  get savedAddress() {
+    return cy.get('[data-testid="shipping-address-radio"]');
+  }
 
-    get continueToCheckout() {
-        return cy.get('[data-testid="checkout-button"]')
-    }
+  get continueToCheckout() {
+    return cy.get('[data-testid="checkout-button"]');
+  }
 
-    get addressButton() {
-        return cy.get('[data-testid="shipping-address-select"] > span')
-    }
-
+  get addressButton() {
+    return cy.get('[data-testid="shipping-address-select"] > span');
+  }
 }
 
-export default CheckoutProccessPage
+export default CheckoutProccessPage;
