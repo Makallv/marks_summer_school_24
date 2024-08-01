@@ -2,7 +2,7 @@ import Pages from "../../../support/pages";
 
 describe("Fullflow test for web store", () => {
   beforeEach(() => {
-    cy.login(Cypress.env("username"), Cypress.env("password"));
+    cy.login(Cypress.env("USERNAME"), Cypress.env("PASSWORD"));
   });
 
   it("User can add to cart", () => {
