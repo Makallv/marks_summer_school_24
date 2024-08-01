@@ -11,6 +11,7 @@ describe("Register a new account", () => {
     Pages.basePage.visit();
   });
 
+  // https://tdlschool.atlassian.net/browse/TSS22N-73
   it("User can't register with out password", () => {
     Pages.loginPage.registerLink.click();
     Pages.registerPage.registerFunc(
@@ -29,6 +30,7 @@ describe("Register a new account", () => {
     Pages.homePage.productArray.should("not.exist");
   });
 
+  // https://tdlschool.atlassian.net/browse/TSS22N-56
   it("User can't register with out first name", () => {
     Pages.loginPage.registerLink.click();
     Pages.registerPage.registerFunc(
@@ -47,6 +49,7 @@ describe("Register a new account", () => {
     Pages.homePage.productArray.should("not.exist");
   });
 
+  // https://tdlschool.atlassian.net/browse/TSS22N-75
   it("User can't register with incorrect email format", () => {
     Pages.loginPage.registerLink.click();
     Pages.registerPage.registerFunc(
@@ -71,6 +74,7 @@ describe("Register a new account", () => {
     Pages.homePage.productArray.should("not.exist");
   });
 
+  // https://tdlschool.atlassian.net/browse/TSS22N-78
   it("User can't register by using the same email", () => {
     Pages.loginPage.registerLink.click()
     Pages.registerPage.registerFunc(
