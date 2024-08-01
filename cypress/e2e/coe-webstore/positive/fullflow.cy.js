@@ -2,13 +2,7 @@ import Pages from "../../../support/pages";
 
 describe("Fullflow test for web store", () => {
   beforeEach(() => {
-    if (!cy.fixture("user/user")){
-      cy.login(Cypress.env("username"), Cypress.env("password"));
-    } else {
-      cy.fixture("user/user").then((userJson) => {
-        cy.login(userJson["username"], userJson["password"]);
-      });
-    }
+    cy.login(Cypress.env("username"), Cypress.env("password"));
   });
 
   it("User can add to cart", () => {
