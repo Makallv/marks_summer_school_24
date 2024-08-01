@@ -10,7 +10,7 @@ class AddressPage extends BasePage {
   }
 
   get addNewAddress() {
-    return cy.get('button[data-testid="add-address-button"]'); // is button really necessary?
+    return cy.get('button[data-testid="add-address-button"]'); // TODO: is 'button' part really necessary in selector? looks like element would be found without it
   }
 
   requiredImputs(element) {
@@ -18,15 +18,15 @@ class AddressPage extends BasePage {
   }
 
   select(element) {
-    return cy.get(`[data-testid="${element}"]`);
+    return cy.get(`[data-testid="${element}"]`); // TODO: duplicate of cy.getByTestId command
   }
 
   get saveButton() {
-    return cy.get('button[data-testid="save-button"]'); // is button really necessary?
+    return cy.get('button[data-testid="save-button"]'); // TODO: is 'button' part really necessary in selector? looks like element would be found without it
   }
 
   get addressContainer() {
-    return cy.get('[data-testid="address-container"]');
+    return cy.get('[data-testid="address-container"]'); // TODO: use cy.getByTestId
   }
 }
 
