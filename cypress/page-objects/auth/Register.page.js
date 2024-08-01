@@ -22,7 +22,7 @@ class RegisterPage extends BasePage {
   }
 
   get phoneInput() {
-    return cy.get("#phone");
+    return cy.get("#phone"); // TODO: use data-testid selector
   }
 
   get passwordInput() {
