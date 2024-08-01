@@ -27,6 +27,7 @@ describe("Fullflow test for web store", () => {
         for (const [i_key, i_value] of Object.entries(inputs)) {
           for (const [v_key, v_value] of Object.entries(values)) {
             if (i_key === v_key) {
+              // TODO: fillInputs only used for addressPage, so probably best move to that class. Custom cy commands reserved for repetitive, global actions
               Pages.addressPage.inputFill(i_value, v_value);
             }
           }
