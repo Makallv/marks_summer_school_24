@@ -6,8 +6,8 @@ module.exports = defineConfig({
     overwrite: false,
   },
   env: {
-    USERNAME: "",
-    PASSWORD: "",
+    USERNAME: "test@tdl.com",
+    PASSWORD: "bfyj8VP5WYMgd8s",
   },
 
   e2e: {

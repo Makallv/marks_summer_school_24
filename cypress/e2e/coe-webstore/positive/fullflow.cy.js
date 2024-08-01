@@ -21,33 +21,37 @@ describe("Fullflow test for web store", () => {
     Pages.dashboardPage.animeSpin.should("not.exist");
     Pages.dashboardPage.pageLinks("Addresses").click();
     Pages.addressPage.addressTitle.should("exist");
-    Pages.addressPage.addNewAddress.click();
-    cy.fixture("addressInputs").then((inputs) => { // TODO: might be good idea to wrap this in addressPage function to make scenario more readable
+    Pages.addressPage.addNewAddress("add-address-button").click();
+    cy.fixture("addressInputs").then((inputs) => {
       cy.fixture("addressValues").then((values) => {
         for (const [i_key, i_value] of Object.entries(inputs)) {
           for (const [v_key, v_value] of Object.entries(values)) {
             if (i_key === v_key) {
-              cy.fillInputs(i_value, v_value);      // TODO: fillInputs only used for addressPage, so probably best move to that class. Custom cy commands reserved for repetitive, global actions
+              // TODO: fillInputs only used for addressPage, so probably best move to that class. Custom cy commands reserved for repetitive, global actions
+              Pages.addressPage.inputFill(i_value, v_value);
             }
           }
         }
       });
     });
-    Pages.addressPage.saveButton.click();
-    Pages.addressPage.addressContainer.should("have.length", 1);
+    Pages.addressPage.saveButton("save-button").click();
+    Pages.addressPage.addressContainer("address-container").should("have.length", 1);
   });
 
   // https://tdlschool.atlassian.net/browse/TSS22N-190
   it("User can checkout", () => {
     cy.visit(Pages.checkoutProccessPage.url);
-    Pages.checkoutProccessPage.continueToCheckout
+    Pages.checkoutProccessPage
+      .continueToCheckout("checkout-button")
       .should("have.text", "Go to checkout")
       .click();
     Pages.checkoutProccessPage.addressButton
       .should("have.text", "Choose an address")
       .click();
-    Pages.checkoutProccessPage.savedAddress.click();
-    Pages.checkoutProccessPage.firstNameInput.should("have.value", "FirstName");
+    Pages.checkoutProccessPage.savedAddress("shipping-address-radio").click();
+    Pages.checkoutProccessPage
+      .firstNameInput("shipping-first-name-input")
+      .should("have.value", "FirstName");
     Pages.checkoutProccessPage.continueToDelivery.click();
     Pages.checkoutProccessPage.deliveryOptionRadio("FakeEx Express").click();
     Pages.checkoutProccessPage.continueToPayment.click();
