@@ -34,27 +34,27 @@ class RegisterPage extends BasePage {
   }
 
   get registerError() {
-    return cy.get('[data-testid="register-error"]')
+    return cy.get('[data-testid="register-error"]');
   }
 
   registerFunc(name, last, email, pass) {
     if (name === "") {
       this.lastNameInput.type(last);
       this.emailInput.type(email);
-      this.passwordInput.type(pass)
-    } else if (pass === ""){
+      this.passwordInput.type(pass);
+    } else if (pass === "") {
       this.firstNameInput.type(name);
       this.lastNameInput.type(last);
       this.emailInput.type(email);
-    } else if(last === "") {
+    } else if (last === "") {
       this.firstNameInput.type(name);
       this.emailInput.type(email);
-      this.passwordInput.type(pass)
+      this.passwordInput.type(pass);
     } else {
       this.firstNameInput.type(name);
       this.lastNameInput.type(last);
       this.emailInput.type(email);
-      this.passwordInput.type(pass)
+      this.passwordInput.type(pass);
     }
   }
 
