@@ -72,6 +72,7 @@ describe("Register a new account", () => {
   });
 
   it("User can't register by using the same email", () => {
+    Pages.loginPage.registerLink.click()
     Pages.registerPage.registerFunc(
         RANDOM_FIRST_NAME,
         RANDOM_LAST_NAME,
