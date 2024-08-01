@@ -13,6 +13,7 @@ jobs:
           command: npm run cypress-run
       env:
           CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
+          CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}
     - name: Upload report & screenshots
       uses: actions/upload-artifact@v4.3.4
       if: always()
