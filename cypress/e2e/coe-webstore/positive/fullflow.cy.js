@@ -5,6 +5,7 @@ describe("Fullflow test for web store", () => {
     cy.login(Cypress.env("USERNAME"), Cypress.env("PASSWORD"));
   });
 
+  // https://tdlschool.atlassian.net/browse/TSS22N-31
   it("User can add to cart", () => {
     cy.visit(Pages.homePage.url);
     Pages.homePage.visibleProducts("t-shirt").should("be.visible").click();
@@ -13,6 +14,7 @@ describe("Fullflow test for web store", () => {
     Pages.productPage.addToCartButton().should("be.enabled").click();
   });
 
+  // https://tdlschool.atlassian.net/browse/TSS22N-194
   it("User can add an address", () => {
     cy.visit(Pages.dashboardPage.url);
     cy.contains("div", "Hey there");
@@ -35,6 +37,7 @@ describe("Fullflow test for web store", () => {
     Pages.addressPage.addressContainer.should("have.length", 1);
   });
 
+  // https://tdlschool.atlassian.net/browse/TSS22N-190
   it("User can checkout", () => {
     cy.visit(Pages.checkoutProccessPage.url);
     Pages.checkoutProccessPage.continueToCheckout
@@ -56,6 +59,7 @@ describe("Fullflow test for web store", () => {
     );
   });
 
+  // https://tdlschool.atlassian.net/browse/TSS22N-212
   it("User can see order details", () => {
     cy.visit(Pages.dashboardPage.url);
     Pages.dashboardPage.animeSpin.should("not.exist");
@@ -63,6 +67,7 @@ describe("Fullflow test for web store", () => {
     cy.url().should("include", Pages.dashboardPage.url);
   });
 
+  // https://tdlschool.atlassian.net/browse/TSS22N-46
   it("User can log out", () => {
     cy.visit(Pages.dashboardPage.url);
     cy.contains("div", "Hey there");
