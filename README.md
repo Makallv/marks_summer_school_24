@@ -10,6 +10,7 @@ This project is written in JavaScript programming language and project uses:
 * Prettier
 * faker-js
 * Cypress
+* mochawesome
 
 The project is about learning cypress in a real project setting
 
@@ -23,6 +24,12 @@ The project is about learning cypress in a real project setting
 Before user runs tests user should open up fixtures directory and rename `userTemplate` folder to `user` folder.
 In that folder user shall find `user.json` file and in that file he or she should find `"username": "",` and `"password": ""`.
 Between double quotes user should add his or hers created profile for web store to execute the full flow test. 
+After wards to see the report, you will need to execute tests in headless mode.
+
+### Report cleanup
+After running tests and checking the report, user might want to clean up report folder so that after tests it only generates newest reports.
+Use command: `npm run cleanup`
+command will delete the report folder, and make it so much nicer if user wants to redo the tests.
 
 ### Code formating
 
