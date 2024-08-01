@@ -19,5 +19,6 @@ jobs:
       with:
         name: report
         path: |
-          ./mochawesome-report
           ./cypress/screenshots
+          ./mochawesome-report
+          
