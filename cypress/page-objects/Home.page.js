@@ -9,20 +9,16 @@ class HomePage extends BasePage {
     return "/store";
   }
 
-  visit() {
-    return cy.visit(this.url);
-  }
-
   visibleProducts(product) {
-    return cy.get(`[href="/us/products/${product}"]`); //// TODO: use cy.getByHref
+    return cy.getByHref(`products/${product}`);
   }
 
   get productArray() {
-    return cy.get('[data-testid="product-wrapper"]'); // TODO: use cy.getByTestId
+    return cy.getByTestId('product-wrapper');
   }
 
   dashboardPageLink() {
-    return cy.get('[data-testid="nav-dashboard-link"]'); // TODO: use cy.getByTestId
+    return cy.getByTestId('nav-dashboard-link');
   }
 }
 

@@ -18,23 +18,23 @@ class CheckoutProccessPage extends BasePage {
   }
 
   get placeOrder() {
-    return cy.get('[data-testid="submit-order-button"]'); // TODO: use cy.getByTestId
+    return cy.getByTestId("submit-order-button");
   }
 
   get continueToReview() {
-    return cy.get('[data-testid="submit-payment-button"]'); // TODO: use cy.getByTestId
+    return cy.getByTestId("submit-payment-button");
   }
 
   get continueToPayment() {
-    return cy.get('[data-testid="submit-delivery-option-button"]'); // TODO: use cy.getByTestId
+    return cy.getByTestId("submit-delivery-option-button");
   }
 
   get continueToDelivery() {
-    return cy.get('[data-testid="submit-address-button"]'); // TODO: use cy.getByTestId
+    return cy.getByTestId("submit-address-button");
   }
 
   deliveryOptionRadio(option) {
-    return cy.get('[data-testid="delivery-option-radio"]').contains(option); // TODO: use cy.getByTestId
+    return cy.getByTestId("delivery-option-radio").contains(option);
   }
 
   savedAddress(radio) {
@@ -46,7 +46,7 @@ class CheckoutProccessPage extends BasePage {
   }
 
   get addressButton() {
-    return cy.get('[data-testid="shipping-address-select"] > span'); // TODO: use cy.getByTestId
+    return cy.getByTestId("shipping-address-select");
   }
 }
 

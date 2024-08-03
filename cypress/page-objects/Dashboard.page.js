@@ -9,20 +9,16 @@ class DashboardPage extends BasePage {
     return "/dashboard";
   }
 
-  visit() {
-    return cy.visit(this.url);
-  }
-
   get animeSpin() {
     return cy.get(".animate-spin");
   }
 
   pageLinks(pageOption) {
-    return cy.get('[data-testid="account-nav"]').contains(pageOption); // TODO: use cy.getByTestId
+    return cy.getByTestId('account-nav').contains(pageOption);
   }
 
   get orderList() {
-    return cy.get('[data-testid="orders-wrapper"]'); // TODO: use cy.getByTestId
+    return cy.getByTestId('orders-wrapper');
   }
 }
 

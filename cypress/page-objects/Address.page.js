@@ -10,7 +10,7 @@ class AddressPage extends BasePage {
   }
 
   addNewAddress(id) {
-    return cy.getByTestId(id); // TODO: is 'button' part really necessary in selector? looks like element would be found without it
+    return cy.getByTestId(id);
   }
 
   requiredImputs(element) {
@@ -22,15 +22,15 @@ class AddressPage extends BasePage {
   }
 
   select(element) {
-    return cy.getByTestId(element); // TODO: duplicate of cy.getByTestId command
+    return cy.getByTestId(element);
   }
 
   saveButton(button) {
-    return cy.getByTestId(button); // TODO: is 'button' part really necessary in selector? looks like element would be found without it
+    return cy.getByTestId(button);
   }
 
   addressContainer(container) {
-    return cy.getByTestId(container); // TODO: use cy.getByTestId
+    return cy.getByTestId(container);
   }
 }
 
