@@ -14,11 +14,11 @@ class HomePage extends BasePage {
   }
 
   get productArray() {
-    return cy.getByTestId('product-wrapper');
+    return cy.getByTestId("product-wrapper");
   }
 
   dashboardPageLink() {
-    return cy.getByTestId('nav-dashboard-link');
+    return cy.getByTestId("nav-dashboard-link");
   }
 }
 

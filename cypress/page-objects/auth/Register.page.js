@@ -10,31 +10,27 @@ class RegisterPage extends BasePage {
   }
 
   get firstNameInput() {
-    return cy.get('[data-testid="first-name-input"]'); // TODO: use cy.getByTestId
+    return cy.getByTestId("first-name-input");
   }
 
   get lastNameInput() {
-    return cy.get('[data-testid="last-name-input"]'); // TODO: use cy.getByTestId
+    return cy.getByTestId("last-name-input");
   }
 
   get emailInput() {
-    return cy.get('[data-testid="email-input"]'); // TODO: use cy.getByTestId
-  }
-
-  get phoneInput() {
-    return cy.get("#phone"); // TODO: use data-testid selector
+    return cy.getByTestId("email-input");
   }
 
   get passwordInput() {
-    return cy.get('[data-testid="password-input"]'); // TODO: use cy.getByTestId
+    return cy.getByTestId("password-input");
   }
 
   get registerButton() {
-    return cy.get('[data-testid="register-button"]'); // TODO: use cy.getByTestId
+    return cy.getByTestId("register-button");
   }
 
   get registerError() {
-    return cy.get('[data-testid="register-error"]'); // TODO: use cy.getByTestId
+    return cy.getByTestId("register-error");
   }
 
   registerFunc(name, last, email, pass) {

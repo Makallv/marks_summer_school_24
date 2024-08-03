@@ -18,7 +18,7 @@ class AddressPage extends BasePage {
   }
 
   inputFill(input, value) {
-    return cy.fillInputs(input, value)
+    return cy.fillInputs(input, value);
   }
 
   select(element) {

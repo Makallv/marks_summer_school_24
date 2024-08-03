@@ -26,7 +26,6 @@ import Pages from "./pages";
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-
 /**
  * Code below will create a session for the whole test if function is called upon
  * and assert that session was successfully created
@@ -43,7 +42,6 @@ Cypress.Commands.add("login", (email, password) => {
   });
 });
 
-
 /**
  * Code below will help to select desired variant of a product
  * @param size : string value of size
@@ -54,7 +52,6 @@ Cypress.Commands.add("selectVariant", (size, colour) => {
   Pages.productPage.variant(colour).click();
 });
 
-
 /**
  * Code below will find an element that has href attribute attached to it
  * @param address : string value to find an address or an element
@@ -63,7 +60,6 @@ Cypress.Commands.add("getByHref", (address) => {
   cy.get(`[href="/us/${address}"]`);
 });
 
-
 /**
  * Code below will find elements that have attribute "data-testid" attached to them
  * @param id : string value of the desired element wished to be found
@@ -71,7 +67,6 @@ Cypress.Commands.add("getByHref", (address) => {
 Cypress.Commands.add("getByTestId", (id) => {
   cy.get(`[data-testid=${id}]`);
 });
-
 
 /**
  * Code below will find according inputs and fill them with the desired values

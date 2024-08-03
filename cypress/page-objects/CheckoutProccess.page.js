@@ -10,7 +10,7 @@ class CheckoutProccessPage extends BasePage {
   }
 
   firstNameInput(input) {
-    return cy.getByTestId(input)
+    return cy.getByTestId(input);
   }
 
   get successfullOrderText() {
